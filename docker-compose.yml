@@ -1,0 +1,16 @@
+db:
+  image: "postgres:9.4"
+  ports:
+    - "5432:5432"
+  volumes:
+    - /var/lib/postgresql/data
+
+web:
+  build: "."
+  volumes:
+    - ".:/app"
+  ports:
+    - "4000:4000"
+  links:
+    - db
+  env_file: dev.env
