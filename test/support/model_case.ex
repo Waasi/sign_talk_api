@@ -25,16 +25,6 @@ defmodule SignTalkApi.ModelCase do
     end
   end
 
-  setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(SignTalkApi.Repo)
-
-    unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(SignTalkApi.Repo, {:shared, self()})
-    end
-
-    :ok
-  end
-
   @doc """
   Helper for returning list of errors in a struct when given certain data.
 

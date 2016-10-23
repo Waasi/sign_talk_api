@@ -31,14 +31,4 @@ defmodule SignTalkApi.ConnCase do
       @endpoint SignTalkApi.Endpoint
     end
   end
-
-  setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(SignTalkApi.Repo)
-
-    unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(SignTalkApi.Repo, {:shared, self()})
-    end
-
-    {:ok, conn: Phoenix.ConnTest.build_conn()}
-  end
 end

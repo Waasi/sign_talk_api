@@ -7,5 +7,6 @@ defmodule SignTalkApi.Router do
 
   scope "/api", SignTalkApi do
     pipe_through :api
+    resources "/translation", TranslationsController, only: [:create]
   end
 end
